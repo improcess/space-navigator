@@ -11,7 +11,7 @@
   "Find a HID controller that matches the supplied regexp name-matcher. If there is more than one match, the first is selected"
   [name-matcher]
   (let [default-env (ControllerEnvironment/getDefaultEnvironment)
-        matcher     (fn [contr] re-find name-matcher (.toString contr))
+        matcher     (fn [contr] (re-find name-matcher (.toString contr)))
         controller  (first (filter matcher (.getControllers default-env)))]
     (if-not controller (throw (Exception. (str "Could not find HID controller matching " name-matcher ". Is the device connected?"))))
 
