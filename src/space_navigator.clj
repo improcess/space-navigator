@@ -79,7 +79,7 @@
 (defn find-min-max-vals
   "Repeatedly polls the space-navigator for t seconds and returns a map of the max and min vals for each of the available axis."
   [space-nav t]
-  (loop [min-x 0 max-x 0 min-y 0  max-y 0 min-z 0 max-z 0 min-rx 0 max-rx 0 min-ry 0 max-ry 0 min-rz 0 max-rz 0 iters (* time 100)]
+  (loop [min-x 0 max-x 0 min-y 0  max-y 0 min-z 0 max-z 0 min-rx 0 max-rx 0 min-ry 0 max-ry 0 min-rz 0 max-rz 0 iters (* t 100)]
     (let [vals (read-vals space-nav)]
       (Thread/sleep 10)
       (if (< iters 0)
